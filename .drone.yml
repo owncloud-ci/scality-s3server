@@ -1,0 +1,37 @@
+branches: master
+
+pipeline:
+  prepare-workdir:
+    image: owncloudci/php
+    pull: true
+    commands:
+      - git clone https://github.com/scality/S3.git scality-s3server
+      - cd ./scality-s3server
+      - git checkout 7.4.0.1
+
+  dryrun:
+    image: plugins/docker:17.12
+    pull: true
+    dockerfile: ./scality-s3server/Dockerfile
+    context: scality-s3server
+    secrets: [ docker_username, docker_password ]
+    repo: owncloudci/scality-s3server
+    label_schema:
+      - version=7.2
+    tags: [ 'latest', '7.4' ]
+    when:
+      event: [ pull_request ]
+    dry_run: true
+
+  docker:
+    image: plugins/docker:17.12
+    pull: true
+    dockerfile: ./scality-s3server/Dockerfile
+    context: scality-s3server
+    secrets: [ docker_username, docker_password ]
+    repo: owncloudci/scality-s3server
+    label_schema:
+      - version=7.2
+    tags: [ 'latest', '7.4' ]
+    when:
+      event: [ push ]
