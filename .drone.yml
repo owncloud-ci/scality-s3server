@@ -5,9 +5,14 @@ pipeline:
     image: owncloudci/php
     pull: true
     commands:
-      - git clone https://github.com/scality/S3.git scality-s3server
+      - git clone https://github.com/scality/cloudserver.git scality-s3server
       - cd ./scality-s3server
       - git checkout 7.4.0.1
+  override-entrypoint-script:
+    image: owncloud/ubuntu
+    pull: true
+    commands:
+      - cp -f docker-entrypoint.sh scality-s3server/docker-entrypoint.sh
 
   dryrun:
     image: plugins/docker:17.12
@@ -17,7 +22,7 @@ pipeline:
     secrets: [ docker_username, docker_password ]
     repo: owncloudci/scality-s3server
     label_schema:
-      - version=7.2
+      - version=7.4
     tags: [ 'latest', '7.4' ]
     when:
       event: [ pull_request ]
@@ -31,7 +36,7 @@ pipeline:
     secrets: [ docker_username, docker_password ]
     repo: owncloudci/scality-s3server
     label_schema:
-      - version=7.2
+      - version=7.4
     tags: [ 'latest', '7.4' ]
     when:
       event: [ push ]
