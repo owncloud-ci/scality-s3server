@@ -7,7 +7,7 @@ pipeline:
     commands:
       - git clone https://github.com/scality/cloudserver.git scality-s3server
       - cd ./scality-s3server
-      - git checkout 7.4.0.1
+      - git checkout 7.4.4.10
   override-entrypoint-script:
     image: owncloud/ubuntu
     pull: true
