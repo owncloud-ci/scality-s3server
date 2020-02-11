@@ -1,0 +1,8 @@
+FROM zenko/cloudserver:latest-7.4.5
+
+LABEL maintainer="ownCloud DevOps <devops@owncloud.com>" \
+  org.label-schema.name="ownCloud CI Antora" \
+  org.label-schema.vendor="ownCloud GmbH" \
+  org.label-schema.schema-version="1.0"
+
+COPY rootfs /

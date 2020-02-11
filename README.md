@@ -1,31 +1,13 @@
 # scality-s3server
 
-:wrench: This is a docker image to be used in our CI pipeline.
+[![Build Status](https://drone.owncloud.com/api/badges/owncloud-ci/scality-s3server/status.svg)](https://drone.owncloud.com/owncloud-ci/scality-s3server)
 
-
-
-## Issues, Feedback and Ideas
-
-Open an [Issue](https://github.com/owncloud-ci/scality-s3server)
-
-
-## Contributing
-
-Fork -> Patch -> Push -> Pull Request
-
-
-## Authors
-
-* [Patrick Jahns](https://github.com/patrickjahns)
-
+Scality S3 server image for CI pipelines.
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Maintainers
 
-## Copyright
-
-```
-Copyright (c) 2018 Patrick Jahns <github@patrickjahns.de>
-```
+[Robert Kaussow](https://github.com/xoxys/)
